@@ -2,14 +2,19 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <application
         android:label="tracking_flutter"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <service
+        android:name=".LocationService"
+        android:foregroundServiceType="location" />
         <meta-data
     android:name="com.google.android.geo.API_KEY"
-    android:value="AIzaSyDYS-80hcbSBVt2xmw80Df6x2Dw4LnoInk"/>
+    android:value="AIzaSyD7scJAgAMDoj7dnRrICEqVc6x5YWcSKFc"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -37,6 +42,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyD7scJAgAMDoj7dnRrICEqVc6x5YWcSKFc" />
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
